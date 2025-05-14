@@ -1,3 +1,5 @@
+const eta = require("./eta");
+
 const buildEtaEngine = () => {
     return (filePath, options, callback) => {
         try {

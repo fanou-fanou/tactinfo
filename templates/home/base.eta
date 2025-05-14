@@ -7,6 +7,7 @@
 </head>
 
 <body>
+  <%~ include("home/partials/navbar") %>
   <header>
     <h1>sample Header </h1>
   </header>
@@ -14,10 +15,7 @@
   <main>
     <%~ include(it.body) %>
   </main>
-
-  <footer>
-    <p>&copy; 2025 TACTINFO</p>
-  </footer>
+  <%~ include("home/partials/footer") %>
 </body>
 
 </html>
