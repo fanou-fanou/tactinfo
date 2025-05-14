@@ -1,0 +1,8 @@
+{
+    "watch": [
+        "./*",
+        "templates"
+    ],
+    "ext": "js,eta",
+    "exec": "node index.js"
+}

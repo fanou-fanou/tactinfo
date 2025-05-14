@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title><%= it.title || "TACTINFO" %></title>
+</head>
+
+<body>
+  <header>
+    <h1>sample Header </h1>
+  </header>
+
+  <main>
+    <%~ include(it.body) %>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 TACTINFO</p>
+  </footer>
+</body>
+
+</html>
