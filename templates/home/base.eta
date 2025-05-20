@@ -3,15 +3,15 @@
 
 <head>
   <meta charset="UTF-8" />
+  <link rel="stylesheet" href="/milligram-1.4.1/dist/milligram.min.css" />
+  <link rel="stylesheet" href="/style.css" />
+
   <title><%= it.title || "TACTINFO" %></title>
 </head>
 
 <body>
   <%~ include("home/partials/navbar") %>
-  <header>
-    <h1>sample Header </h1>
-  </header>
-
+  <%~ include("home/partials/header") %>
   <main>
     <%~ include(it.body) %>
   </main>

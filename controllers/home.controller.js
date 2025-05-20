@@ -9,7 +9,6 @@ HomeController.get("/", (request, response) => {
     });
 });
 
-
 HomeController.get("/about", (request, response) => {
     return response.render("home/base", {
         title: "about ",

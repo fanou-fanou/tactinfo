@@ -126,6 +126,7 @@ exports.Prisma.MessagesScalarFieldEnum = {
   subject: 'subject',
   email: 'email',
   message: 'message',
+  isRead: 'isRead',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };

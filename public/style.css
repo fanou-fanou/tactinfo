@@ -1,0 +1,58 @@
+:root {
+    --color-white: rgb(255, 255, 255);
+    --color-text: #37423b;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Roboto;
+    color: var(--color-text);
+}
+
+.container-fluid {
+    width: 100%;
+    padding: 0 2rem;
+    margin: 0 auto;
+}
+
+nav {
+    background-color: var(--color-white);
+    padding: 15px 0;
+    border: solid 0.5px rgba(170, 170, 170, 0.377);
+}
+
+.nav-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-row ul {
+    list-style-type: none;
+    margin: 0;
+}
+
+
+.nav-row ul li {
+    display: inline-block;
+    margin: 0;
+    margin-left: 20px;
+    text-transform: capitalize;
+    font-weight: bold;
+}
+
+.nav-row ul li a {
+    color: var(--color-text);
+}
+
+/* contact */
+
+.contact-banner {
+    text-align: center;
+
+}

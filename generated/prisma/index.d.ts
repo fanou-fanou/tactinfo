@@ -877,6 +877,7 @@ export namespace Prisma {
     subject: string | null
     email: string | null
     message: string | null
+    isRead: boolean | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -887,6 +888,7 @@ export namespace Prisma {
     subject: string | null
     email: string | null
     message: string | null
+    isRead: boolean | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -897,6 +899,7 @@ export namespace Prisma {
     subject: number
     email: number
     message: number
+    isRead: number
     createdAt: number
     updatedAt: number
     _all: number
@@ -909,6 +912,7 @@ export namespace Prisma {
     subject?: true
     email?: true
     message?: true
+    isRead?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -919,6 +923,7 @@ export namespace Prisma {
     subject?: true
     email?: true
     message?: true
+    isRead?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -929,6 +934,7 @@ export namespace Prisma {
     subject?: true
     email?: true
     message?: true
+    isRead?: true
     createdAt?: true
     updatedAt?: true
     _all?: true
@@ -1012,6 +1018,7 @@ export namespace Prisma {
     subject: string
     email: string
     message: string
+    isRead: boolean
     createdAt: Date
     updatedAt: Date
     _count: MessagesCountAggregateOutputType | null
@@ -1039,6 +1046,7 @@ export namespace Prisma {
     subject?: boolean
     email?: boolean
     message?: boolean
+    isRead?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }, ExtArgs["result"]["messages"]>
@@ -1051,11 +1059,12 @@ export namespace Prisma {
     subject?: boolean
     email?: boolean
     message?: boolean
+    isRead?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type MessagesOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "fullname" | "subject" | "email" | "message" | "createdAt" | "updatedAt", ExtArgs["result"]["messages"]>
+  export type MessagesOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "fullname" | "subject" | "email" | "message" | "isRead" | "createdAt" | "updatedAt", ExtArgs["result"]["messages"]>
 
   export type $MessagesPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Messages"
@@ -1066,6 +1075,7 @@ export namespace Prisma {
       subject: string
       email: string
       message: string
+      isRead: boolean
       createdAt: Date
       updatedAt: Date
     }, ExtArgs["result"]["messages"]>
@@ -1442,6 +1452,7 @@ export namespace Prisma {
     readonly subject: FieldRef<"Messages", 'String'>
     readonly email: FieldRef<"Messages", 'String'>
     readonly message: FieldRef<"Messages", 'String'>
+    readonly isRead: FieldRef<"Messages", 'Boolean'>
     readonly createdAt: FieldRef<"Messages", 'DateTime'>
     readonly updatedAt: FieldRef<"Messages", 'DateTime'>
   }
@@ -1785,6 +1796,7 @@ export namespace Prisma {
     subject: 'subject',
     email: 'email',
     message: 'message',
+    isRead: 'isRead',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
   };
@@ -1824,6 +1836,13 @@ export namespace Prisma {
 
 
   /**
+   * Reference to a field of type 'Boolean'
+   */
+  export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
+    
+
+
+  /**
    * Reference to a field of type 'DateTime'
    */
   export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime'>
@@ -1849,6 +1868,7 @@ export namespace Prisma {
     subject?: StringFilter<"Messages"> | string
     email?: StringFilter<"Messages"> | string
     message?: StringFilter<"Messages"> | string
+    isRead?: BoolFilter<"Messages"> | boolean
     createdAt?: DateTimeFilter<"Messages"> | Date | string
     updatedAt?: DateTimeFilter<"Messages"> | Date | string
   }
@@ -1859,6 +1879,7 @@ export namespace Prisma {
     subject?: SortOrder
     email?: SortOrder
     message?: SortOrder
+    isRead?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     _relevance?: MessagesOrderByRelevanceInput
@@ -1873,6 +1894,7 @@ export namespace Prisma {
     subject?: StringFilter<"Messages"> | string
     email?: StringFilter<"Messages"> | string
     message?: StringFilter<"Messages"> | string
+    isRead?: BoolFilter<"Messages"> | boolean
     createdAt?: DateTimeFilter<"Messages"> | Date | string
     updatedAt?: DateTimeFilter<"Messages"> | Date | string
   }, "id">
@@ -1883,6 +1905,7 @@ export namespace Prisma {
     subject?: SortOrder
     email?: SortOrder
     message?: SortOrder
+    isRead?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     _count?: MessagesCountOrderByAggregateInput
@@ -1899,6 +1922,7 @@ export namespace Prisma {
     subject?: StringWithAggregatesFilter<"Messages"> | string
     email?: StringWithAggregatesFilter<"Messages"> | string
     message?: StringWithAggregatesFilter<"Messages"> | string
+    isRead?: BoolWithAggregatesFilter<"Messages"> | boolean
     createdAt?: DateTimeWithAggregatesFilter<"Messages"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"Messages"> | Date | string
   }
@@ -1909,6 +1933,7 @@ export namespace Prisma {
     subject: string
     email: string
     message: string
+    isRead?: boolean
     createdAt: Date | string
     updatedAt: Date | string
   }
@@ -1919,6 +1944,7 @@ export namespace Prisma {
     subject: string
     email: string
     message: string
+    isRead?: boolean
     createdAt: Date | string
     updatedAt: Date | string
   }
@@ -1929,6 +1955,7 @@ export namespace Prisma {
     subject?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     message?: StringFieldUpdateOperationsInput | string
+    isRead?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -1939,6 +1966,7 @@ export namespace Prisma {
     subject?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     message?: StringFieldUpdateOperationsInput | string
+    isRead?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -1949,6 +1977,7 @@ export namespace Prisma {
     subject: string
     email: string
     message: string
+    isRead?: boolean
     createdAt: Date | string
     updatedAt: Date | string
   }
@@ -1959,6 +1988,7 @@ export namespace Prisma {
     subject?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     message?: StringFieldUpdateOperationsInput | string
+    isRead?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -1969,6 +1999,7 @@ export namespace Prisma {
     subject?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     message?: StringFieldUpdateOperationsInput | string
+    isRead?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -1986,6 +2017,11 @@ export namespace Prisma {
     endsWith?: string | StringFieldRefInput<$PrismaModel>
     search?: string
     not?: NestedStringFilter<$PrismaModel> | string
+  }
+
+  export type BoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
   }
 
   export type DateTimeFilter<$PrismaModel = never> = {
@@ -2011,6 +2047,7 @@ export namespace Prisma {
     subject?: SortOrder
     email?: SortOrder
     message?: SortOrder
+    isRead?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -2021,6 +2058,7 @@ export namespace Prisma {
     subject?: SortOrder
     email?: SortOrder
     message?: SortOrder
+    isRead?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -2031,6 +2069,7 @@ export namespace Prisma {
     subject?: SortOrder
     email?: SortOrder
     message?: SortOrder
+    isRead?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -2053,6 +2092,14 @@ export namespace Prisma {
     _max?: NestedStringFilter<$PrismaModel>
   }
 
+  export type BoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
+  }
+
   export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     in?: Date[] | string[]
@@ -2069,6 +2116,10 @@ export namespace Prisma {
 
   export type StringFieldUpdateOperationsInput = {
     set?: string
+  }
+
+  export type BoolFieldUpdateOperationsInput = {
+    set?: boolean
   }
 
   export type DateTimeFieldUpdateOperationsInput = {
@@ -2088,6 +2139,11 @@ export namespace Prisma {
     endsWith?: string | StringFieldRefInput<$PrismaModel>
     search?: string
     not?: NestedStringFilter<$PrismaModel> | string
+  }
+
+  export type NestedBoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
   }
 
   export type NestedDateTimeFilter<$PrismaModel = never> = {
@@ -2128,6 +2184,14 @@ export namespace Prisma {
     gt?: number | IntFieldRefInput<$PrismaModel>
     gte?: number | IntFieldRefInput<$PrismaModel>
     not?: NestedIntFilter<$PrismaModel> | number
+  }
+
+  export type NestedBoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
   }
 
   export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
