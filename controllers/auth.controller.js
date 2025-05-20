@@ -1,13 +1,14 @@
 const { Router } = require("express");
 const passport = require("passport");
+const { isNotAuthenticated, isAuthenticated } = require("../config/authorization");
 
 const AuthController = Router();
 
-AuthController.get("/login", function (request, response) {
+AuthController.get("/login", isNotAuthenticated, function (request, response) {
     return response.render("auth/login");
 });
 
-AuthController.post("/login", passport.authenticate("local", {
+AuthController.post("/login", isNotAuthenticated, passport.authenticate("local", {
     successRedirect: "/app",
     failureRedirect: "/login",
     failureFlash: true,
@@ -15,7 +16,7 @@ AuthController.post("/login", passport.authenticate("local", {
     response.redirect("/login");
 });
 
-AuthController.post("/logout", function (request, response) {
+AuthController.post("/logout", isAuthenticated, function (request, response) {
     request.logout(function () {
         request.flash('success', "you're logged out");
         response.redirect('/login');
