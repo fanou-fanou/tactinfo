@@ -1,18 +1,24 @@
 const { Router } = require("express");
+const passport = require("passport");
 
 const AuthController = Router();
 
-AuthController.get("/login", (request, response) => {
-    return response.render("home/base", {
-        title: "login",
-        body: "auth/login"
-    });
+AuthController.get("/login", function (request, response) {
+    return response.render("auth/login");
 });
 
-AuthController.get("/register", (request, response) => {
-    return response.render("home/base", {
-        title: "register",
-        body: "auth/register"
+AuthController.post("/login", passport.authenticate("local", {
+    successRedirect: "/app",
+    failureRedirect: "/login",
+    failureFlash: true,
+}), function (request, response) {
+    response.redirect("/login");
+});
+
+AuthController.post("/logout", function (request, response) {
+    request.logout(function () {
+        request.flash('success', "you're logged out");
+        response.redirect('/login');
     });
 });
 

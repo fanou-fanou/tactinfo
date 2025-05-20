@@ -1,0 +1,23 @@
+{% extends "home/base.njk" %}
+
+{% block title %}
+    LOGIN TACTINFO
+{% endblock %}
+
+{% block body %}
+    <h2>Login</h2>
+    <form action="" method="POST">
+        <input type="hidden" name="_csrf" value="{{ csrfToken }}"/>
+        <div>
+            <label for="credential">Email or username: </label>
+            <input type="text" name="credential" id="credential"/>
+        </div>
+        <div>
+            <label for="password">password:</label>
+            <input type="password" name="password" id="password">
+        </div>
+        <div>
+            <button type="submit">login</button>
+        </div>
+    </form>
+{% endblock %}

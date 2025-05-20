@@ -4,6 +4,7 @@ const env = require("./config/env");
 const engine = require("./config/engine");
 const middlewares = require("./config/middlewares/middlewares");
 const errorHandler = require("./config/middlewares/error.middleware");
+require("./config/passport");
 
 const app = express();
 const isDev = env.mode == "dev";

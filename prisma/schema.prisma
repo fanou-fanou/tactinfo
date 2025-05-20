@@ -17,3 +17,23 @@ model Messages {
   updatedAt DateTime @default(now()) @updatedAt
   isRead    Boolean  @default(false)
 }
+
+model Users {
+  id           String   @id @default(uuid())
+  firstname    String
+  lastname     String
+  username     String?  @unique
+  email        String?  @unique
+  password     String
+  profileImage String?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @default(now()) @updatedAt
+  role         Roles    @default(STUDENT)
+}
+
+enum Roles {
+  ADMIN
+  STUDENT
+  PROFESSOR
+  STAFF
+}
