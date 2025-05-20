@@ -14,7 +14,7 @@ function isAuthenticated(request, response, next) {
     return response.redirect('/login');
 };
 
-function isNotAuthenticated() {
+function isNotAuthenticated(request, response, next) {
     if (!request.isAuthenticated()) {
         return next();
     }
@@ -41,7 +41,7 @@ function hasAnyRole(roles) {
         if (request.isAuthenticated() && roles.includes(request.user.role)) {
             return next();
         }
-        return response.render('error/404.error.njk');
+        return response.render('errors/404.error.njk');
     }
 }
 

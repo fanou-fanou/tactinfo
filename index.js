@@ -14,6 +14,11 @@ middlewares.forEach(middleware => app.use(middleware));
 engine(app);
 
 mainRoute.forEach(route => app.use(route.prefix, route.controller));
+
+app.all("*", function (request, response) {
+    return response.render("errors/404.error.njk");
+})
+
 app.use(errorHandler);
 
 app.listen(9000, () => {
