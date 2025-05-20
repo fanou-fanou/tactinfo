@@ -1,33 +1,41 @@
+const { saveMessage } = require("../services/message.service");
+
 const { Router } = require("express");
 
 const HomeController = Router();
 
-HomeController.get("/", (request, response) => {
-    return response.render("home/base", {
-        title: "home ",
-        body: "home/index"
-    });
+HomeController.get("/", function (request, response) {
+    response.render("home/index");
 });
 
-HomeController.get("/about", (request, response) => {
-    return response.render("home/base", {
-        title: "about ",
-        body: "home/about"
-    });
+HomeController.get("/about", function (request, response) {
+    response.render("home/about");
 });
 
-HomeController.get("/contact", (request, response) => {
-    return response.render("home/base", {
-        title: "contact ",
-        body: "home/contact"
-    });
+
+HomeController.get("/service", function (request, response) {
+    response.render("home/service");
 });
 
-HomeController.get("/service", (request, response) => {
-    return response.render("home/base", {
-        title: "service",
-        body: "home/service"
-    })
-})
+HomeController.get("/contact", function (request, response) {
+    response.render("home/contact");
+});
+
+HomeController.post("/contact", async function (request, response) {
+    try {
+        await saveMessage(request.body);
+        request.flash("success", "message sent");
+        return response.redirect('/contact');
+    } catch (error) {
+        return response.render("home/contact", {
+            title: "contact",
+            body: "home/contact",
+            form: error.message.data,
+            error: error.message.text
+        });
+    }
+});
+
+
 
 module.exports = HomeController;

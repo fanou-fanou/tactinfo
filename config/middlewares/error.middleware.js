@@ -8,7 +8,7 @@ function errorHandler(err, req, res, next) {
         });
     }
 
-    if (env.mode === "development") {
+    if (env.mode === "dev") {
         console.error(err);
     }
 

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" href="/milligram-1.4.1/dist/milligram.min.css"/>
+    <link rel="stylesheet" href="/style.css"/>
+    <title>
+      {% block title %}TACTINFO{% endblock %}
+    </title>
+  </head>
+
+  <body>
+    {% include "home/partials/navbar.njk" %}
+    {% include "home/partials/header.njk" %}
+    {% block body %}{% endblock %}
+    {% include "home/partials/footer.njk" %}
+
+  </body>
+
+</html>

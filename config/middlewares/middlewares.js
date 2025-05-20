@@ -21,7 +21,7 @@ module.exports = [
     helmet(),
     morgan(env.mode),
     compression(),
-    express.static(path.join(__dirname, "..", "public")),
+    express.static(path.join(__dirname, "../..", "public")),
     express.urlencoded({ extended: false }),
     express.json(),
     session(sessionConfig),
