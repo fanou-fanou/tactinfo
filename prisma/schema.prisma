@@ -19,16 +19,74 @@ model Messages {
 }
 
 model Users {
-  id           String   @id @default(uuid())
+  id           String    @id @default(uuid())
   firstname    String
   lastname     String
-  username     String?  @unique
-  email        String?  @unique
+  username     String?   @unique
+  email        String?   @unique
   password     String
   profileImage String?
-  createdAt    DateTime @default(now())
-  updatedAt    DateTime @default(now()) @updatedAt
-  role         Roles    @default(STUDENT)
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @default(now()) @updatedAt
+  role         Roles     @default(STUDENT)
+  Students     Students?
+}
+
+model Students {
+  id               String    @id @default(uuid())
+  number           String    @unique
+  birthDate        DateTime
+  birthPlace       String
+  address          String
+  phone            Json
+  nationalId       String?
+  nationalIdDate   DateTime?
+  duplicateId      String?
+  registrationDate DateTime
+  fatherName       String
+  motherName       String
+  emergencyContact Json
+  facebookProfile  String?
+  createdAt        DateTime  @default(now())
+  updatedAt        DateTime  @default(now()) @updatedAt
+
+  userId      String        @unique
+  user        Users         @relation(fields: [userId], references: [id])
+  Enrollments Enrollments[]
+}
+
+model Modules {
+  id          String        @id @default(uuid())
+  name        String        @unique
+  duration    Int
+  price       Int
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @default(now()) @updatedAt
+  Enrollments Enrollments[]
+}
+
+model Trainings {
+  id          String        @id @default(uuid())
+  level       Levels        @default(L1)
+  price       Int
+  duration    Int
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @default(now()) @updatedAt
+  Enrollments Enrollments[]
+}
+
+model Enrollments {
+  id         String   @id @default(uuid())
+  studentId  String
+  trainingId String?
+  level      Levels?
+  moduleId   String?
+  startDate  DateTime
+  endDate    DateTime
+
+  training Trainings? @relation(fields: [trainingId], references: [id])
+  module   Modules?   @relation(fields: [moduleId], references: [id])
+  student  Students   @relation(fields: [studentId], references: [id])
 }
 
 enum Roles {
@@ -36,4 +94,10 @@ enum Roles {
   STUDENT
   PROFESSOR
   STAFF
+}
+
+enum Levels {
+  L1
+  L2
+  L3
 }

@@ -11,8 +11,7 @@ async function saveMessage(data) {
 
     try {
         return await prisma.messages.create({ data: value });
-    } catch (err) {
-        console.error(err);
+    } catch (error) {
         throw new ClientError("Failed to save message.");
     }
 }

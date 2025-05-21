@@ -9,7 +9,7 @@ const { hasAnyRole } = require("../config/authorization");
 
 const MessageResource = Router();
 
-MessageResource.get("/all", hasAnyRole(["ADMIN", "STAFF"]), async (req, res, next) => {
+MessageResource.get("/all", hasAnyRole(["ADMIN", "STAFF"]), async (request, response, next) => {
     const page = Number(req.query.page) || 1;
     const limit = Number(req.query.limit) || 10;
 
@@ -22,7 +22,7 @@ MessageResource.get("/all", hasAnyRole(["ADMIN", "STAFF"]), async (req, res, nex
 });
 
 
-MessageResource.get("/:id", hasAnyRole(["ADMIN", "STAFF"]), async (req, res, next) => {
+MessageResource.get("/:id", hasAnyRole(["ADMIN", "STAFF"]), async (request, response, next) => {
     try {
         const message = await getMessage(req.params.id);
         return res.status(200).json(message);
@@ -32,7 +32,7 @@ MessageResource.get("/:id", hasAnyRole(["ADMIN", "STAFF"]), async (req, res, nex
 });
 
 
-MessageResource.delete("/:id", hasAnyRole(["ADMIN"]), async (req, res, next) => {
+MessageResource.delete("/:id", hasAnyRole(["ADMIN"]), async (request, response, next) => {
     try {
         const result = await removeMessage(req.params.id);
         return res.status(200).json(result);
@@ -41,7 +41,7 @@ MessageResource.delete("/:id", hasAnyRole(["ADMIN"]), async (req, res, next) => 
     }
 });
 
-MessageResource.get("/count/unread", hasAnyRole(["ADMIN", "STAFF"]), async (req, res, next) => {
+MessageResource.get("/count/unread", hasAnyRole(["ADMIN", "STAFF"]), async (request, response, next) => {
     try {
         const count = await countUnreadMessages();
         return res.status(200).json({ unread: count });
