@@ -19,7 +19,7 @@ function isNotAuthenticated(request, response, next) {
         return next();
     }
     const redirectPath = {
-        ADMIN: "/admin",
+        ADMIN: "/app/admin",
         STUDENT: "/app",
         PROFESSOR: "/app",
         STAFF: "/app",
