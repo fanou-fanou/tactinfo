@@ -67,7 +67,7 @@ model Modules {
 
 model Trainings {
   id          String        @id @default(uuid())
-  level       Levels        @default(L1)
+  level       Levels        @unique @default(L1)
   price       Int
   duration    Int
   createdAt   DateTime      @default(now())
