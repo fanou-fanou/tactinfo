@@ -23,4 +23,8 @@ AuthController.post("/logout", isAuthenticated, function (request, response) {
     });
 });
 
+AuthController.get("/current/user", isAuthenticated, function (request, repsonse) {
+    return repsonse.status(200).json(request.user);
+})
+
 module.exports = AuthController;
